@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiAppBlazor.Services;
+using Microsoft.Extensions.Logging;
 using Users.MAUI.Data;
 
 namespace Users.MAUI
@@ -16,6 +17,9 @@ namespace Users.MAUI
                 });
 
             builder.Services.AddMauiBlazorWebView();
+
+            //Inyectamos aquí el Servicio
+            builder.Services.AddSingleton<IRickAndMortyService, RickAndMortyService>();
 
 #if DEBUG
             IServiceCollection serviceCollection = builder.Services.AddBlazorWebViewDeveloperTools();
